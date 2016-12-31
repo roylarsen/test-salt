@@ -10,6 +10,7 @@ setup(
   install_requires=[
     'Click',
     'testinfra',
+    'python-vagrant',
   ],
   entry_points='''
     [console_scripts]
