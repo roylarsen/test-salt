@@ -1,5 +1,5 @@
 import click
-
+from test_salt.interfaces import start as vagrant_start
 
 @click.group()
 def run():
@@ -10,6 +10,8 @@ def run():
 @run.command()
 def start():
   click.echo('starting...')
+  box = vagrant_start()
+  print box.ssh_config()
 
 # This will provision the machine and set up work environment
 @run.command()
