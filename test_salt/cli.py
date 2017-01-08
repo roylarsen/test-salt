@@ -9,9 +9,13 @@ def run():
 # This will run the tests
 @run.command()
 def start():
-  click.echo('starting...')
-  box = vagrant_start()
-  print box.ssh_config()
+  try:
+    open('./Vagrantfile')
+    click.echo('starting...')
+    box = vagrant_start()
+    print box.ssh_config()
+  except IOError:
+    print "No Vagrantfile in PWD"
 
 # This will provision the machine and set up work environment
 @run.command()
